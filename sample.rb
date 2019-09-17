@@ -3,7 +3,6 @@ class Player
       puts "数字を入力してください。\n0:グー\n1:チョキ\n2:パー"
       player_hand = gets.chomp
       # byebug
-#while true
    if player_hand !~ /^[0-2]{1}$/
      #!= "0\n" || player_hand != "1\n" || player_hand != "2\n"
     puts "0~2の数字を入力してください"
@@ -40,16 +39,20 @@ class Janken
 
     if result == 0
       puts "相手の手は#{jankens[enemy_hand]}です。あいこです。"
-      #return true
+      player = Player.new
+      enemy = Enemy.new
+      self.pon(player.hand, enemy.hand)
+
     elsif   result == 2
           puts "相手の手は#{jankens[enemy_hand]}です。あなたの勝ちです"
-          #return false
     else result  == 1
            puts "相手の手は#{jankens[enemy_hand]}です。あなたの負けです。"
-          #return false
     end
   end
 end
+
+
+
 
 
     # プレイヤーが打ち込んだ値と、Enemyがランダムに 出した値でじゃんけんをさせ、その結果をコンソール上に出力するメソッドをこの中に作成する
